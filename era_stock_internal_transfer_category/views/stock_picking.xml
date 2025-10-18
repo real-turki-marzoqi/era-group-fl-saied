@@ -1,0 +1,24 @@
+<odoo>
+
+    <record id="era_category_product_picking_view_form" model="ir.ui.view">
+        <field name="name">era.category.product.picking.view.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='picking_type_id']" position="before">
+                <field name="with_category" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']/list//field[@name='product_id']" position="before">
+                <field name="product_id_domain" column_invisible="1"/>
+                <field name="category_id"
+                       column_invisible="not parent.with_category"
+                       options="{'no_create': True, 'no_open': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']/list//field[@name='product_id']" position="attributes">
+                <attribute name="domain">product_id_domain</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
