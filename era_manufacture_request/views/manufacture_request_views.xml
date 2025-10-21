@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_manufacturing_request_form" model="ir.ui.view">
+        <field name="name">manufacturing.request.form</field>
+        <field name="model">manufacturing.request</field>
+        <field name="arch" type="xml">
+            <form string="manufacturing Request">
+                <header>
+                    <button name="action_upload_product" string="Upload Product" invisible="state != 'draft'" type="object" class="btn-primary"/>
+
+                    <button name="action_set_qty"
+                            string="Qty in normal day"
+                            type="object"
+                            context="{'qty_type': 'normal'}"
+                            invisible="state != 'confirmed' or is_set_qty"
+                            class="btn-primary"/>
+
+                    <button name="action_set_qty"
+                            string="Qty in middle day"
+                            type="object"
+                            context="{'qty_type': 'middle'}"
+                            invisible="state != 'confirmed' or is_set_qty"
+                            class="btn-primary"/>
+
+                    <button name="action_set_qty"
+                            string="Qty in weekday"
+                            type="object"
+                            context="{'qty_type': 'weekday'}"
+                            invisible="state != 'confirmed' or is_set_qty"
+                            class="btn-primary"/>
+
+                    <button name="action_create_manufacturing_orders"
+                            string="Create Manufacturing Orders"
+                            type="object"
+                            invisible="state != 'confirmed'"
+                            class="btn-primary"/>
+
+                    <button name="action_cancel"
+                            string="Cancel"
+                            type="object"
+                            invisible="state != 'done'"
+                            class="btn-primary"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                </header>
+                <sheet>
+
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="branch_id"
+                                   readonly="state != 'draft'"
+                                   options="{'no_open':True,'no_create':True}"/>
+                        </group>
+                        <group>
+                            <field name="date" readonly="True"/>
+                            <field name="user_id" readonly="True"/>
+                            <field name="is_set_qty" invisible="True"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Request Lines">
+
+                            <field name="line_ids">
+                                <list editable="bottom" create="0">
+                                    <field name="product_id"
+                                           readonly="1"
+                                           options="{'no_open':True,'no_create':True}"/>
+                                    <field name="on_hand_qty" readonly="1"/>
+                                    <field name="order_qty"/>
+                                    <field name="product_qty" readonly="1"/>
+
+                                    <field name="active" column_invisible="True"/>
+                                    <field name="company_id" column_invisible="True"/>
+                                    <field name="request_id" column_invisible="True"/>
+                                    <field name="mrp_production_id" column_invisible="True"/>
+                                </list>
+                            </field>
+
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_manufacturing_request_tree" model="ir.ui.view">
+        <field name="name">manufacturing.request.tree</field>
+        <field name="model">manufacturing.request</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="branch_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_manufacturing_request_list" model="ir.actions.act_window">
+        <field name="name">Manufacturing Requests</field>
+        <field name="res_model">manufacturing.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_manufacturing_request_root"
+              name="Manufacturing Requests"
+              sequence="10"
+              web_icon="era_manufacture_request,static/description/icon.png"/>
+
+    <menuitem id="menu_manufacturing_request" name="Requests" parent="menu_manufacturing_request_root" action="action_manufacturing_request_list"/>
+
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="era_product_finished_good_form_view" model="ir.ui.view">
+        <field name="name">era.product.finished.good.form.view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+
+            <div name="options" position='inside'>
+                <span class="d-inline-flex">
+                    <field name="is_finished_good"/>
+                    <label for="is_finished_good"/>
+                </span>
+            </div>
+
+
+        </field>
+    </record>
+
+</odoo>

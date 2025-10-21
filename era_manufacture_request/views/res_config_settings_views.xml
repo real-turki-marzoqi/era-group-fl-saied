@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="era_res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">era.res.config.settings.view.form.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="37"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//block[@name='process_operations_setting_container']" position="after">
+                    <block title="Quantity to produce">
+                        <setting id="days_normal"  title="Quantity to produce in normal day">
+                            <field name="days_normal"/>
+                        </setting>
+                        <setting id="days_middle"  title="Quantity to produce in middle day">
+                            <field name="days_middle"/>
+                        </setting>
+                        <setting id="days_weekday"  title="Quantity to produce in weekday">
+                            <field name="days_weekday"/>
+                        </setting>
+                    </block>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

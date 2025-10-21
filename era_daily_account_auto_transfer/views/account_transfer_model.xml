@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="era_view_transfer_model_form" model="ir.ui.view">
+        <field name="name">era.view.transfer.model.form</field>
+        <field name="model">account.transfer.model</field>
+        <field name="inherit_id" ref="account_auto_transfer.view_transfer_model_form"/>
+        <field name="arch" type="xml">
+            <!-- Hide percent -->
+            <field name="percent" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </field>
+
+            <!-- Add new amount field after account_id -->
+            <field name="partner_ids" position="after">
+                <field name="amount" attrs="{'invisible': [('percent', '!=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
