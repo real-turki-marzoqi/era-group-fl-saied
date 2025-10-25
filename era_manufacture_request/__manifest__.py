@@ -21,6 +21,7 @@
         "security/ir.model.access.csv",
         "views/manufacture_request_views.xml",
         "views/product_product.xml",
+        "views/mrp_production.xml",
         "views/res_config_settings_views.xml"
     ],
 

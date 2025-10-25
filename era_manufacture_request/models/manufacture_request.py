@@ -91,6 +91,8 @@ class ManufacturingRequest(models.Model):
         # picking_obj = self.env["stock.picking"]
 
         for line in self.line_ids:
+            dest_location = self.branch_id.lot_stock_id
+
             if line.product_qty > 0:
                 mo = mo_obj.create({
                     "product_id": line.product_id.id,
@@ -98,32 +100,32 @@ class ManufacturingRequest(models.Model):
                     'date_start': self.date,
                     'user_id': self.env.user.id,
                     'company_id': self.env.company.id,
+                    'branch_id': self.branch_id.id,
                 })
                 mo.action_confirm()
                 line.mrp_production_id = mo
 
-                # source_location = mo.location_dest_id if mo.location_dest_id else False
-                # dest_location = self.branch_id.lot_stock_id
-                #
-                # if not source_location or not dest_location:
-                #     continue  # skip if locations not defined
-                #
-                # picking_vals = {
-                #     "picking_type_id": mo.picking_type_id.id,
-                #     "location_id": source_location.id,
-                #     "location_dest_id": dest_location.id,
-                #     "origin": self.name,
-                #     "scheduled_date": self.date,
-                #     "state": "waiting",
-                #     "move_ids_without_package": [(0, 0, {
-                #         "name": line.product_id.display_name,
-                #         "product_id": line.product_id.id,
-                #         "product_uom_qty": line.product_qty,
-                #         "product_uom": line.product_id.uom_id.id,
-                #         "location_id": source_location.id,
-                #         "location_dest_id": dest_location.id,
-                #     })],
-                # }
-                # picking_obj.create(picking_vals)
+                source_location = mo.location_dest_id if mo.location_dest_id else False
+
+                if not source_location or not dest_location:
+                    continue  # skip if locations not defined
+
+                picking_vals = {
+                    "picking_type_id": mo.picking_type_id.id,
+                    "location_id": source_location.id,
+                    "location_dest_id": dest_location.id,
+                    "origin": self.name,
+                    "scheduled_date": self.date,
+                    "state": "waiting",
+                    "move_ids_without_package": [(0, 0, {
+                        "name": line.product_id.display_name,
+                        "product_id": line.product_id.id,
+                        "product_uom_qty": line.product_qty,
+                        "product_uom": line.product_id.uom_id.id,
+                        "location_id": source_location.id,
+                        "location_dest_id": dest_location.id,
+                    })],
+                }
+                picking_obj.create(picking_vals)
 
         self.state = "done"
