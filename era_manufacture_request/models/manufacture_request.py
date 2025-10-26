@@ -88,11 +88,11 @@ class ManufacturingRequest(models.Model):
     def action_create_manufacturing_orders(self):
         """Server Action: Create MOs from request lines"""
         mo_obj = self.env["mrp.production"]
-        # picking_obj = self.env["stock.picking"]
+        picking_obj = self.env["stock.picking"]
+        dest_location = self.branch_id.lot_stock_id
+        picking_type_id = self.branch_id.int_type_id
 
         for line in self.line_ids:
-            dest_location = self.branch_id.lot_stock_id
-
             if line.product_qty > 0:
                 mo = mo_obj.create({
                     "product_id": line.product_id.id,
@@ -111,11 +111,12 @@ class ManufacturingRequest(models.Model):
                     continue  # skip if locations not defined
 
                 picking_vals = {
-                    "picking_type_id": mo.picking_type_id.id,
+                    "picking_type_id": picking_type_id.id,
                     "location_id": source_location.id,
                     "location_dest_id": dest_location.id,
                     "origin": self.name,
                     "scheduled_date": self.date,
+                    'mrp_production_id': mo.id,
                     "state": "waiting",
                     "move_ids_without_package": [(0, 0, {
                         "name": line.product_id.display_name,
