@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="era_view_order_form_stock_tracking" model="ir.ui.view">
+        <field name="name">era.sale.order.form.stock.tracking</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="after">
+                <field name="onhand_qty" readonly="1"/>
+                <field name="reserved_qty" readonly="1"/>
+                <field name="available_qty" readonly="1"/>
+                <field name="saved_location_qty" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
