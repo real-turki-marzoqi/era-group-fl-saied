@@ -8,7 +8,7 @@ class SaleOrderLine(models.Model):
 
     onhand_qty = fields.Float(string="On Hand Qty", compute="_compute_stock_quantities")
     reserved_qty = fields.Float(string="Reserved Qty", compute="_compute_stock_quantities")
-    available_qty = fields.Float(string="Fruit use Qty", compute="_compute_stock_quantities")
+    available_qty = fields.Float(string="Free to Use Qty", compute="_compute_stock_quantities")
     saved_location_qty = fields.Float(string="Saved Location Qty", compute="_compute_stock_quantities")
 
     @api.depends('product_id')
@@ -40,7 +40,6 @@ class SaleOrderLine(models.Model):
             # 2- Custom Locations of Type “is_saved”
             saved_locations = self.env['stock.location'].search([
                 ('is_saved', '=', True),
-                ('id', 'child_of', wh.view_location_id.id)
             ])
             if saved_locations:
                 quants_saved = StockQuant.read_group(
