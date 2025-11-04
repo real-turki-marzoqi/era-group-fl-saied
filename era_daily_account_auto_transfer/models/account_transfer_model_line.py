@@ -70,14 +70,10 @@ class TransferModelLine(models.Model):
             **account_field_values,
             'partner_id': self.partner_ids[:1].id,
             'unit_amount': 1,
-            # 'product_id': self.product_id and self.product_id.id or False,
-            # 'product_uom_id': self.product_uom_id and self.product_uom_id.id or False,
             'amount': amount,
             'general_account_id': self.account_id.id,
-            # 'ref': self.ref,
             'account_transfer_id': self.id,
             'user_id': self._uid,
-            'company_id': self.env.company.id,
             'category': 'other',
         }
 
