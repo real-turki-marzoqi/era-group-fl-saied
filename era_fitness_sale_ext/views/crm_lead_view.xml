@@ -1,0 +1,18 @@
+<odoo>
+  <record id="view_crm_lead_form_inherit_category_products" model="ir.ui.view">
+    <field name="name">crm.lead.form.inherit.category.products</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+    <field name="arch" type="xml">
+      <!-- إضافة بعد tag_ids مباشرة -->
+      <xpath expr="//field[@name='tag_ids']" position="after">
+
+ <field name="product_category_id"
+                 domain="[('appear_in_crm','=',True)]"/>
+          <field name="product_ids" widget="many2many_tags"
+                 domain="[('categ_id', 'child_of', product_category_id)]"/>
+
+      </xpath>
+    </field>
+  </record>
+</odoo>

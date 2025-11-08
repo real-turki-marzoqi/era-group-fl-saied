@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- إضافة حقلَي الربط والتصنيف داخل نموذج السيرفي -->
+  <record id="survey_view_form_inherit_sale_link" model="ir.ui.view">
+    <field name="name">survey.form.inherit.sale.link</field>
+    <field name="model">survey.survey</field>
+    <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+    <!-- ملاحظة: في بعض الإصدارات يكون id = survey.survey_view_form. عدل الـ ref لو لزم -->
+    <field name="arch" type="xml">
+      <!-- نحط الحقول في التبويب العام تحت العنوان -->
+
+      <xpath expr="//sheet/group" position="inside">
+        <group string="Sale Link">
+
+          <field name="survey_category_id" />
+        </group>
+      </xpath>
+
+    </field>
+  </record>
+
+
+</odoo>

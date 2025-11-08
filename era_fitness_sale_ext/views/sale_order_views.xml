@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- 🔧 حذف أي زر باسم action_confirm_custom أينما وُجد -->
+
+
+    <!-- 1) شريط الحالة: rq → quotation_review → draft → sent → confirm → sale -->
+    <record id="view_order_form_rq_statusbar" model="ir.ui.view">
+        <field name="name">sale.order.form.rq.statusbar</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="replace">
+                <field name="state"
+                       widget="statusbar"
+                       statusbar_visible="rq,quotation_review,draft,sent,confirm,sale,done,cancel"
+                       statusbar_colors="{'rq':'info','quotation_review':'primary','draft':'muted','sent':'warning','confirm':'primary','sale':'success','cancel':'danger'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 2) أزرار الهيدر -->
+    <record id="view_order_form_rq_buttons" model="ir.ui.view">
+        <field name="name">sale.order.form.request.quotation.buttons</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+
+                <!-- draft → rq -->
+                <button name="action_submit_request"
+                        type="object"
+                        string="Submit for Request Quotation"
+                        invisible="state != 'draft'"/>
+
+                <!-- rq → quotation_review -->
+                <button name="action_approve_request"
+                        type="object"
+                        string="Send to Quotation Review"
+                        class="oe_highlight"
+                        groups="era_fitness_sale_ext.group_sale_request_approver"
+                        invisible="state != 'rq'"/>
+
+                <!-- موافقات quotation_review -->
+                <button name="action_review_approve_manager"
+                        type="object"
+                        string="Mgr Approve"
+                        class="btn-secondary"
+                        invisible="state != 'quotation_review' or review_manager_approved"/>
+
+                <button name="action_review_approve_coordinator"
+                        type="object"
+                        string="Coordinator Approve"
+                        class="btn-secondary"
+                        groups="era_fitness_sale_ext.group_sales_coordinator"
+                        invisible="state != 'quotation_review' or review_coord_approved"/>
+
+                <button name="action_review_approve_admin"
+                        type="object"
+                        string="Sales Admin Approve"
+                        class="btn-secondary"
+                        groups="sales_team.group_sale_manager"
+                        invisible="state != 'quotation_review' or review_admin_approved"/>
+
+                <!-- إنهاء المراجعة → draft -->
+                <button name="action_review_finalize"
+                        type="object"
+                        string="Finalize Review → Quotation"
+                        class="btn-primary"
+                        invisible="state != 'quotation_review'"/>
+
+                <!-- draft/sent → confirm -->
+                <button name="action_set_confirm"
+                        type="object"
+                        string="Set to Confirm"
+                        class="btn-primary"
+                        groups="era_fitness_sale_ext.group_sale_order_confirm"
+                        invisible="not (state == 'draft' or state == 'sent')"/>
+            </xpath>
+
+            <!-- حقول إضافية بعد partner -->
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="quotation_category_id" domain="[('appear_in_quotation','=',True)]"/>
+                <field name="q_type"/>
+                <field name="bid_closing_date" invisible="q_type != 'tender'"/>
+                <field name="quotation_type"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 3) order_line: ربط الكاتيجوري وفلترة المنتج -->
+    <record id="view_order_form_add_line_categ_v18" model="ir.ui.view">
+        <field name="name">sale.order.form.add.line.categ.v18</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <!-- line_categ_id قبل المنتج -->
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_template_id']" position="before">
+                <field name="line_categ_id"
+                       optional="show"
+                       domain="[('id','child_of', parent.quotation_category_id)]"/>
+            </xpath>
+
+            <!-- product_template_id -->
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_template_id']" position="attributes">
+                <attribute name="domain">[('categ_id','child_of', parent.quotation_category_id)]</attribute>
+                <attribute name="context">
+                    {
+                        'line_categ_id': line_categ_id,
+                        'catalog_categ_id': parent.quotation_category_id,
+                        'searchpanel_default_categ_id': parent.quotation_category_id,
+                        'search_default_in_categ_tree': parent.quotation_category_id and 1 or 0,
+                        'search_default_no_products': (not parent.quotation_category_id) and 1 or 0
+                    }
+                </attribute>
+                <attribute name="readonly">not line_categ_id</attribute>
+            </xpath>
+
+            <!-- product_id -->
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_id']" position="attributes">
+                <attribute name="domain">[('product_tmpl_id.categ_id','child_of', parent.quotation_category_id)]</attribute>
+                <attribute name="context">
+                    {
+                        'line_categ_id': line_categ_id,
+                        'catalog_categ_id': parent.quotation_category_id,
+                        'searchpanel_default_categ_id': parent.quotation_category_id,
+                        'search_default_in_categ_tree': parent.quotation_category_id and 1 or 0,
+                        'search_default_no_products': (not parent.quotation_category_id) and 1 or 0
+                    }
+                </attribute>
+                <attribute name="readonly">not line_categ_id</attribute>
+            </xpath>
+
+            <!-- عناصر عرض إضافية -->
+            <xpath expr="//field[@name='order_line']/list" position="inside">
+                <field name="product_image_128" widget="image" class="oe_avatar" options="{'size': 32}" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_template_id']" position="after">
+                <field name="brand_id" readonly="1"/>
+                <field name="warranty_period" readonly="1"/>
+            </xpath>
+
+            <!-- تثبيت دومين line_categ_id -->
+            <xpath expr="//field[@name='order_line']//field[@name='line_categ_id']" position="attributes">
+                <attribute name="domain">[('id','child_of', parent.quotation_category_id)]</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- 4) كانبان الكاتالوج -->
+    <record id="product_product_view_kanban_catalog_limit_domain" model="ir.ui.view">
+        <field name="name">product.product.kanban.catalog.limit.domain</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_view_kanban_catalog"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban[@js_class='product_kanban_catalog']" position="attributes">
+                <attribute name="domain">[('categ_id','child_of', context.get('catalog_categ_id', 0))]</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 5) Search View -->
+    <record id="view_product_product_search_catalog_ctx_ext" model="ir.ui.view">
+        <field name="name">product.product.search.catalog.ctx.ext</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_view_search_catalog"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter name="in_categ_tree"
+                        string="In Selected Category"
+                        domain="[('categ_id','child_of', context.get('catalog_categ_id'))]"/>
+                <filter name="no_products"
+                        string="No Products"
+                        domain="[('id','=',0)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 6) استبدال أي Confirm قديم بزر واحد Approve يظهر فقط في confirm -->
+    <record id="so_force_single_approve_btn" model="ir.ui.view">
+        <field name="name">sale.order.form.force.single.approve.btn</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="9999"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_confirm"
+                        type="object"
+                        string="Approve"
+                        class="btn-primary"
+                        groups="era_fitness_sale_ext.group_sale_order_approver"
+                        invisible="state != 'confirm'"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

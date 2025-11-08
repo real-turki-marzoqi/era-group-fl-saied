@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- ===== Image Column (TH) قبل الوصف ===== -->
+  <template id="so_report_image_th" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//thead//th[@name='th_description']" position="before">
+      <t t-if="env.context.get('show_image', True)">
+        <th class="text-center" style="width:60px;">Image</th>
+      </t>
+    </xpath>
+  </template>
+
+  <!-- Image TD -->
+  <template id="so_report_image_td" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//tbody//td[descendant::span[@t-field='line.name']]" position="before">
+      <t t-if="env.context.get('show_image', True)">
+        <td class="text-center">
+          <t t-if="line.product_id.image_1920">
+            <img t-att-src="'data:image/png;base64,%s' % (line.product_id.image_1920 or '')"
+                 style="max-height:50px; max-width:50px; border-radius:4px;"/>
+          </t>
+        </td>
+      </t>
+    </xpath>
+  </template>
+
+  <!-- ===== Brand + Warranty (TH) بعد الوصف ===== -->
+  <template id="so_report_brand_warranty_th" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//thead//th[@name='th_description']" position="after">
+      <t t-if="env.context.get('show_brand', True)">
+        <th class="text-left">Brand</th>
+      </t>
+      <t t-if="env.context.get('show_warranty', True)">
+        <th class="text-left">Warranty</th>
+      </t>
+    </xpath>
+  </template>
+
+  <!-- Brand + Warranty TD -->
+  <template id="so_report_brand_warranty_td" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//tbody//td[descendant::span[@t-field='line.name']]" position="after">
+      <t t-if="env.context.get('show_brand', True)">
+        <td class="text-left">
+          <t t-esc="(line.brand_id and line.brand_id.name) or ''"/>
+        </td>
+      </t>
+      <t t-if="env.context.get('show_warranty', True)">
+        <td class="text-left">
+          <t t-esc="line.warranty_period or ''"/>
+        </td>
+      </t>
+    </xpath>
+  </template>
+
+  <!-- ===== Toggle للأعمدة الافتراضية: Qty / Discount / Amount ===== -->
+
+  <!-- Qty TH: دعم th_quantity أو th_qty + تقييد داخل الجدول الصحيح -->
+  <template id="so_report_qty_th_toggle" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//thead//th[@name='th_quantity' or @name='th_qty']" position="attributes">
+      <attribute name="t-if">env.context.get('show_qty', True)</attribute>
+    </xpath>
+  </template>
+
+  <!-- Qty TD: داخل نفس جدول أسطر البيع -->
+  <template id="so_report_qty_td_toggle" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//tbody//td[span[@t-field='line.product_uom_qty']]" position="attributes">
+      <attribute name="t-if">env.context.get('show_qty', True)</attribute>
+    </xpath>
+  </template>
+
+  <!-- Discount TH: اسم شائع th_discount مع احتياط للنص 'Disc.' -->
+  <template id="so_report_discount_th_toggle" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//thead//th[@name='th_discount' or normalize-space()='Disc.' or contains(normalize-space(.), 'Disc')]" position="attributes">
+      <attribute name="t-if">env.context.get('show_discount', True)</attribute>
+    </xpath>
+  </template>
+
+  <!-- Discount TD -->
+  <template id="so_report_discount_td_toggle" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//tbody//td[span[@t-field='line.discount']]" position="attributes">
+      <attribute name="t-if">env.context.get('show_discount', True)</attribute>
+    </xpath>
+  </template>
+
+  <!-- Amount/Subtotal TH -->
+  <template id="so_report_amount_th_toggle" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//thead//th[@name='th_subtotal']" position="attributes">
+      <attribute name="t-if">env.context.get('show_amount', True)</attribute>
+    </xpath>
+  </template>
+
+  <!-- Amount/Subtotal TD -->
+  <template id="so_report_amount_td_toggle" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//table[.//span[@t-field='line.name']]//tbody//td[span[@t-field='line.price_subtotal']]" position="attributes">
+      <attribute name="t-if">env.context.get('show_amount', True)</attribute>
+    </xpath>
+  </template>
+
+</odoo>

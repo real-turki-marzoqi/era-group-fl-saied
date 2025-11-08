@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <!-- 🔹 Module Category خاص بالموديول -->
+    <record id="module_category_era_fitness" model="ir.module.category">
+      <field name="name">Add Category Code</field>
+      <field name="sequence">60</field>
+    </record>
+
+    <!-- 🔹 Sales: Request Quotation Approver -->
+    <record id="group_sale_request_approver" model="res.groups">
+      <field name="name">Sales: Request Quotation Approver</field>
+      <field name="category_id" eval="False"/>
+    </record>
+
+    <!-- 🔹 Add Category Code (تحت كاتيجوري Era Fitness) -->
+    <record id="group_add_category_code" model="res.groups">
+      <field name="name">Add Category Code</field>
+      <field name="category_id" ref="era_fitness_sale_ext.module_category_era_fitness"/>
+    </record>
+
+    <!-- 🔹 Confirm Sale Order (الجروب المطلوب) -->
+    <record id="group_sale_order_confirm" model="res.groups">
+      <field name="name">Confirm Sale Order</field>
+      <field name="category_id" ref="era_fitness_sale_ext.module_category_era_fitness"/>
+    </record>
+
+      <record id="group_sale_order_approver" model="res.groups">
+      <field name="name">Approve Sale Order </field>
+      <field name="category_id" ref="era_fitness_sale_ext.module_category_era_fitness"/>
+    </record>
+    <record id="group_sale_order_coordinator" model="res.groups">
+      <field name="name">Sale Order coordinator</field>
+      <field name="category_id" ref="era_fitness_sale_ext.module_category_era_fitness"/>
+    </record>
+
+
+
+  </data>
+</odoo>

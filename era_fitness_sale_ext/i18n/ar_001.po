@@ -1,0 +1,696 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* era_fitness_sale_ext
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-02 12:15+0000\n"
+"PO-Revision-Date: 2025-11-02 12:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_brand_form
+msgid "<span class=\"o_stat_text\">Products</span>"
+msgstr "المنتجات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__active
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_brand_search
+msgid "Active"
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:res.groups,name:era_fitness_sale_ext.group_add_category_code
+msgid "Add Category Code"
+msgstr "إضافة أكواد التصنيف"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "All three approvals are required before finalizing."
+msgstr "يجب تأكيد موافقة المدير المباشر لمندوب المبيعات وأدمن المبيعات و منسق المبيعات قبل الانتقال لمرحلة عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__show_amount
+msgid "Amount"
+msgstr "الملبغ"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_category__appear_in_crm
+msgid "Appear in CRM"
+msgstr "إظهار في ادارة علاقة المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_category__appear_in_quotation
+msgid "Appear in a Quotation"
+msgstr "إظهار في عروض الأسعار"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "Approval only in Quotation Review."
+msgstr "يجب ان تكون الموافقة في مراجعة عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.so_force_single_approve_btn
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: era_fitness_sale_ext
+#: model:res.groups,name:era_fitness_sale_ext.group_sale_order_Approve
+msgid "Approve Sale Order"
+msgstr "موافقة عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_brand_search
+msgid "Archived"
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__bid_closing_date
+msgid "Bid Closing Date"
+msgstr "تاريخ إغلاق المناقصة"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "Bid Closing Date is required when Quotation Type is Tender."
+msgstr "تاريخ إغلاق المناقصة إلزامي عند تحديد نوع العرض كمناقصة"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_product__brand_id
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_template__brand_id
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order_line__brand_id
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.so_report_brand_warranty_th
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_brand_form
+msgid "Brand"
+msgstr "العلامة التجارية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__name
+msgid "Brand Name"
+msgstr "إسم العلامة التجارية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.constraint,message:era_fitness_sale_ext.constraint_product_brand_brand_code_uniq
+msgid "Brand code must be unique!"
+msgstr "يجب عدم تكرار رمز العلامة التجارية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.constraint,message:era_fitness_sale_ext.constraint_product_brand_brand_name_uniq
+msgid "Brand name must be unique!"
+msgstr "يجب عدم تكرار اسم العلامة التجارية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.actions.act_window,name:era_fitness_sale_ext.action_product_brand
+#: model:ir.ui.menu,name:era_fitness_sale_ext.menu_product_brand
+msgid "Brands"
+msgstr "العلامات التجارية"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_sale_report_columns_wizard_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__state__cancel
+msgid "Cancelled"
+msgstr "تم الإلغاء "
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__q_type__cash
+msgid "Cash Quotation"
+msgstr "عرض سعر نقدي"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__quotation_category_id
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_category__manager_ids
+msgid "Category Managers"
+msgstr "مدراء التصنيف"
+
+#. module: era_fitness_sale_ext
+#: model:ir.actions.act_window,name:era_fitness_sale_ext.action_open_sale_report_columns_wizard
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_sale_report_columns_wizard_form
+msgid "Choose Columns"
+msgstr "إختر خانات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model,name:era_fitness_sale_ext.model_sale_report_columns_wizard
+msgid "Choose Columns for Quotation Report"
+msgstr "تحديد الخانات المعروضة في تقرير عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__code
+msgid "Code"
+msgstr "الرمز"
+
+#. module: era_fitness_sale_ext
+#: model:res.groups,name:era_fitness_sale_ext.group_sale_order_approver
+msgid "Confirm Sale Approver"
+msgstr "موافق عروض الأسعار"
+
+#. module: era_fitness_sale_ext
+#: model:res.groups,name:era_fitness_sale_ext.group_sale_order_confirm
+msgid "Confirm Sale Order"
+msgstr "تأكيد أمر البيع"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__state__confirm
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_category__consultation_code
+msgid "Consultation Code"
+msgstr "رمز الاستشارة"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_order_form_rq_buttons
+msgid "Coordinator Approve"
+msgstr "منسق المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_coord_approved
+msgid "Coordinator Approved"
+msgstr "تمت موافقة منسق المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_coord_date
+msgid "Coordinator Approved On"
+msgstr "وافق منسق المبيعات في"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_coord_id
+msgid "Coordinator Approver"
+msgstr " منسق المبيعات الموافق"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.actions.act_window,help:era_fitness_sale_ext.action_product_brand
+msgid "Create your first product brand"
+msgstr "قم بادارة العلامات التجارية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__create_uid
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__create_date
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_category__delivery_code
+msgid "Delivery Code"
+msgstr "رمز التوصيل"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__description
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_brand_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__show_discount
+msgid "Discount"
+msgstr "الخصم"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__display_name
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.module.category,name:era_fitness_sale_ext.module_category_era_fitness
+msgid "Era Fitness"
+msgstr "صلاحيات اضافية"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_order_form_rq_buttons
+msgid "Finalize Review → Quotation"
+msgstr "إتمام المراجعة وتحويلها إلى عرض سعر"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "Finalize only in Quotation Review."
+msgstr "لا يمكن الإنهاء إلا في مرحلة مراجعة عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__q_type__forward
+msgid "Forward Quotation"
+msgstr "تمرير عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__id
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order_line__product_image_128
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__show_image
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.so_report_image_th
+msgid "Image"
+msgstr "الصورة"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_product_search_catalog_ctx_ext
+msgid "In Selected Category"
+msgstr "في التصنيف المحدد"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__quotation_type__installation
+msgid "Installation"
+msgstr "تركيب"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_category__installation_code
+msgid "Installation Code"
+msgstr "رمز التركيب"
+
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__write_uid
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__write_date
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.model,name:era_fitness_sale_ext.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "عميل مهتم/فرصة "
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order_line__line_categ_id
+msgid "Line Category"
+msgstr "التصنيف"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order_line.py:0
+msgid ""
+"Line Category must match the Quotation Category or one of its children."
+msgstr "يجب ان يكون تصنيف المنتج تابع تابع لتصنيف عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__state__done
+msgid "Locked"
+msgstr "مغلق"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__logo
+msgid "Logo"
+msgstr "الشعار"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_order_form_rq_buttons
+msgid "Mgr Approve"
+msgstr "موافقة المدير المباشر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_manager_approved
+msgid "Mgr Approved"
+msgstr "المدير المباشر موافق"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_manager_date
+msgid "Mgr Approved On"
+msgstr "تم موافقة المدير المباشر في"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_manager_id
+msgid "Mgr Approver"
+msgstr "الموافق"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_product_search_catalog_ctx_ext
+msgid "No Products"
+msgstr "لامنتجات"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "Only Request Quotation can be approved."
+msgstr "يمكن اعتماد عروض الأسعار من نوع طلب عرض السعر فقط."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "Only Sales Admin can approve this step."
+msgstr "يمكن لمسؤول المبيعات فقط اعتماد هذه المرحلة."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "Only Sales Coordinator can approve this step."
+msgstr "يمكن لمنسق المبيعات فقط اعتماد هذه المرحلة."
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_sale_order__quotation_category_id
+msgid "Only categories with \"Appear in a Quotation\" enabled are selectable."
+msgstr "يمكن اختيار التصنيفات التي تم تفعيل خيار \"الظهور في عرض السعر\" لها فقط."
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_crm_lead__product_category_id
+msgid ""
+"Only products under this category (and its children) will be selectable."
+msgstr "يمكن اختيار المنتجات ضمن هذا التصنيف أو التصنيفات الفرعية التابعة له فقط."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "Only the direct manager of the salesperson can approve this step."
+msgstr "يمكن للمدير المباشر لمندوب المبيعات فقط اعتماد هذه المرحلة."
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_crm_lead__product_ids
+msgid "Pick products under the selected category (and its child categories)."
+msgstr "اختر المنتجات ضمن التصنيف المحدد أو التصنيفات الفرعية التابعة له."
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_sale_report_columns_wizard_form
+msgid "Print"
+msgstr "طباعة"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.sale_order_form_inherit_custom_print
+msgid "Print (Custom)"
+msgstr "طباعة (مخصصة)"
+
+
+#. module: era_fitness_sale_ext
+#: model:ir.model,name:era_fitness_sale_ext.model_product_template
+msgid "Product"
+msgstr "المنتج"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model,name:era_fitness_sale_ext.model_product_brand
+msgid "Product Brand"
+msgstr "العلامة التجارية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model,name:era_fitness_sale_ext.model_product_category
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_crm_lead__product_category_id
+msgid "Product Category"
+msgstr "فئة المنتج"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_crm_lead__product_ids
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__product_count
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_brand_kanban
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__show_qty
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__state__draft
+msgid "Quotation"
+msgstr "عرض سعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__state__quotation_review
+msgid "Quotation Review"
+msgstr "مراجعة عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__state__sent
+msgid "Quotation Sent"
+msgstr "تم إرسال عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__quotation_type
+msgid "Quotation Type"
+msgstr "نوع عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_sale_order_line__warranty_period
+msgid "Read-only. Inherited from the product's brand."
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_product_product__warranty_period
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_product_template__warranty_period
+msgid "Read-only. Inherited from the selected brand."
+msgstr ""
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__state__rq
+msgid "Request Quotation"
+msgstr "طلب موافقة عرض سعر"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order_line.py:0
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_sale_order_line__line_categ_id
+msgid "Restrict products to this category and its children."
+msgstr "تقييد المنتجات بهذا التصنيف والتصنيفات الفرعية التابعة له."
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__sale_id
+msgid "Sale"
+msgstr "المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:res.groups,name:era_fitness_sale_ext.group_sale_order_coordinator
+msgid "Sale Order coordinator"
+msgstr "منسق أوامر المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_order_form_rq_buttons
+msgid "Sales Admin Approve"
+msgstr "اعتماد مسؤول المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_admin_approved
+msgid "Sales Admin Approved"
+msgstr "تم اعتماد مسؤول المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_admin_date
+msgid "Sales Admin Approved On"
+msgstr "تاريخ اعتماد مسؤول المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__review_admin_id
+msgid "Sales Admin Approver"
+msgstr "المعتمد من مسؤول المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model,name:era_fitness_sale_ext.model_sale_order
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__state__sale
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model,name:era_fitness_sale_ext.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "بند أمر المبيعات"
+
+#. module: era_fitness_sale_ext
+#: model:res.groups,name:era_fitness_sale_ext.group_sale_request_approver
+msgid "Sales: Request Quotation Approver"
+msgstr "المبيعات: معتمد طلب عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_product_category__manager_ids
+msgid "Select one or more employees responsible for this product category."
+msgstr "حدد موظفًا أو أكثر مسؤولين عن هذا التصنيف من المنتجات."
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_product_product__brand_id
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_product_template__brand_id
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_sale_order_line__brand_id
+msgid "Select the product brand."
+msgstr "حدد علامة المنتج التجارية."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/crm_lead.py:0
+msgid "Selected category is not allowed for CRM (appear_in_crm is False)."
+msgstr "التصنيف المحدد غير مسموح به في نظام CRM (الظهور في CRM غير مفعّل)."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order_line.py:0
+msgid "Selected product does not belong to the chosen Line Category."
+msgstr "المنتج المحدد لا ينتمي إلى فئة السطر المختارة."
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_order_form_rq_buttons
+msgid "Send to Quotation Review"
+msgstr "إرسال إلى مراجعة عرض السعر"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_order_form_rq_buttons
+msgid "Set to Confirm"
+msgstr "تعيين كـ مؤكد"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_product_brand__code
+msgid "Short code for the brand"
+msgstr "رمز مختصر للعلامة التجارية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__show_brand
+msgid "Show Brand"
+msgstr "عرض العلامة التجارية"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_report_columns_wizard__show_warranty
+msgid "Show Warranty"
+msgstr "عرض الضمان"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_product_brand_form
+msgid "Show products of this brand"
+msgstr "عرض المنتجات التابعة لهذه العلامة التجارية"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "Some orders are not in Confirm state. Move them to Confirm first."
+msgstr "بعض الطلبات ليست في حالة التأكيد. يرجى تحويلها إلى حالة مؤكد أولاً."
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.view_order_form_rq_buttons
+msgid "Submit for Request Quotation"
+msgstr "إرسال كطلب عرض سعر"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__quotation_type__supply
+msgid "Supply"
+msgstr "توريد"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__quotation_type__supply_installation
+msgid "Supply & Installation"
+msgstr "توريد وتركيب"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields.selection,name:era_fitness_sale_ext.selection__sale_order__q_type__tender
+msgid "Tender"
+msgstr "مناقصة"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order__q_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: era_fitness_sale_ext
+#: model_terms:ir.ui.view,arch_db:era_fitness_sale_ext.so_report_brand_warranty_th
+msgid "Warranty"
+msgstr "الضمان"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__warranty_period
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_product__warranty_period
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_template__warranty_period
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_sale_order_line__warranty_period
+msgid "Warranty Period (Months)"
+msgstr "مدة الضمان (بالأشهر)"
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,help:era_fitness_sale_ext.field_product_brand__warranty_period
+msgid "Warranty duration in months for this brand."
+msgstr "مدة الضمان بالأشهر لهذه العلامة التجارية."
+
+#. module: era_fitness_sale_ext
+#: model:ir.model.fields,field_description:era_fitness_sale_ext.field_product_brand__website
+msgid "Website"
+msgstr "الموقع الالكتروني"
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "You are not allowed to approve Request Quotation."
+msgstr "ليس لديك صلاحية لاعتماد طلب عرض السعر."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "You can only move to Request Quotation from Draft or if already rq."
+msgstr "يمكنك الانتقال إلى طلب عرض السعر فقط من حالة المسودة أو إذا كانت بالفعل في حالة طلب عرض السعر."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "You can only set Confirm from Quotation or Quotation Sent."
+msgstr "يمكنك التعيين كـ مؤكد فقط من حالتي عرض السعر أو عرض السعر المرسل."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "✅ *Review Finalized* by %s → state set to *Quotation* (name: %s → %s)."
+msgstr "✅ *تم إنهاء المراجعة* بواسطة %s → تم تغيير الحالة إلى *عرض سعر* (الاسم: %s → %s)."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "✅ Set to *Confirm* by %s."
+msgstr "✅ تم التعيين كـ *مؤكد* بواسطة %s."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "👤 *Manager Approval* by %s."
+msgstr "👤 *اعتماد المدير* بواسطة %s."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "📌 *Coordinator Approval* by %s."
+msgstr "📌 *اعتماد المنسق* بواسطة %s."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "📝 Moved to *Quotation Review* by %s."
+msgstr "📝 تم النقل إلى *مراجعة عرض السعر* بواسطة %s."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "📤 Sent to *Request Quotation* by %s."
+msgstr "📤 تم الإرسال إلى *طلب عرض السعر* بواسطة %s."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "🔐 *Sales Admin Approval* by %s."
+msgstr "🔐 *اعتماد مسؤول المبيعات* بواسطة %s."
+
+#. module: era_fitness_sale_ext
+#. odoo-python
+#: code:addons/era_fitness_sale_ext/models/sale_order.py:0
+msgid "🧾 *Sales Order* confirmed by %s."
+msgstr "🧾 *تم تأكيد أمر البيع* بواسطة %s."

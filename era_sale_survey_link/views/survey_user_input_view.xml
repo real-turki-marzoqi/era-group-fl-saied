@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="survey_user_input_view_form_sale_link" model="ir.ui.view">
+        <field name="name">survey.user.input.view.form.sale.link</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='page_answers']" position="replace">
+                <page string="Answers" name="page_answers">
+                    <field name="user_input_line_ids" mode="list" readonly="True" no_label="1">
+                        <list decoration-muted="skipped == True">
+                            <field name="question_sequence" column_invisible="True"/>
+                            <field name="create_date" optional="hidden"/>
+                            <field name="page_id" optional="hidden"/>
+                            <field name="question_id"/>
+                            <field name="answer_type" optional="hidden"/>
+                            <field name="skipped" hide="1"/>
+                            <field name="display_name" string="Answer"/>
+                            <field name="answer_is_correct"/>
+                            <field name="answer_score" sum="Score"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
+            <field name="partner_id" position="before">
+                <field name="sale_order_id"
+                       readonly="1"
+                       options="{'no_edit': True, 'no_create': True, 'no_open': True}"/>
+            </field>
+
+        </field>
+    </record>
+
+</odoo>

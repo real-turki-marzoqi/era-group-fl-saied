@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Action -->
+    <record id="action_product_brand" model="ir.actions.act_window">
+        <field name="name">Brands</field>
+        <field name="res_model">product.brand</field>
+        <!-- لا تكتب search هنا -->
+        <field name="view_mode">list,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first product brand</p>
+        </field>
+    </record>
+
+    <!-- Sales -> Products (Catalog) -> Brands -->
+    <menuitem id="menu_product_brand"
+              name="Brands"
+              parent="sale.product_menu_catalog"
+              action="action_product_brand"
+              sequence="60"/>
+
+    <!-- Search View -->
+    <record id="view_product_brand_search" model="ir.ui.view">
+        <field name="name">product.brand.search</field>
+        <field name="model">product.brand</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <filter string="Active" name="active_true" domain="[('active','=',True)]"/>
+                <filter string="Archived" name="active_false" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- List (بدل Tree) -->
+    <record id="view_product_brand_list" model="ir.ui.view">
+        <field name="name">product.brand.list</field>
+        <field name="model">product.brand</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="website"/>
+                <field name="product_count" widget="statinfo"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Kanban -->
+    <record id="view_product_brand_kanban" model="ir.ui.view">
+        <field name="name">product.brand.kanban</field>
+        <field name="model">product.brand</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="active">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record">
+                            <div class="o_kanban_image">
+                                <field name="logo" widget="image" class="oe_avatar"/>
+                            </div>
+                            <div class="o_kanban_details">
+                                <strong><field name="name"/></strong>
+                                <div><field name="code"/></div>
+                                <div t-if="record.website.raw_value">
+                                    <a t-att-href="record.website.raw_value" target="_blank">
+                                        <field name="website"/>
+                                    </a>
+                                </div>
+                                <div class="o_kanban_footer">
+                                    <span class="o_stat_info">
+                                        <field name="product_count"/> Products
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form -->
+    <record id="view_product_brand_form" model="ir.ui.view">
+        <field name="name">product.brand.form</field>
+        <field name="model">product.brand</field>
+        <field name="arch" type="xml">
+            <form string="Brand">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" class="oe_stat_button" icon="fa-cubes"
+                                name="action_view_products"
+                                help="Show products of this brand">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value"><field name="product_count"/></span>
+                                <span class="o_stat_text">Products</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="website"/>
+                            <field name="warranty_period"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="logo" widget="image" class="oe_avatar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
