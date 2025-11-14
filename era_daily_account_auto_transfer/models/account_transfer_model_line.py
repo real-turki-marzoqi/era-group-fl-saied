@@ -14,6 +14,10 @@ class TransferModelLine(models.Model):
 
     parent_state = fields.Selection(related='transfer_model_id.state', store=True)
 
+    # company_id = fields.Many2one('res.company',
+    #                              string='Company',
+    #                              default=lambda self: self.env.company.id)
+
     # === Analytic fields === #
     analytic_line_ids = fields.One2many(
         comodel_name='account.analytic.line', inverse_name='account_transfer_id',
